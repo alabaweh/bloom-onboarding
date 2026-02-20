@@ -1,0 +1,32 @@
+"use client";
+import { useState } from "react";
+export default function Dashboard() {
+  const [mode, setMode] = useState<"cycle"|"ttc"|"pregnancy">("cycle"); const modes = [{key:"cycle" as const,label:"Cycle"},{key:"ttc" as const,label:"TTC"},{key:"pregnancy" as const,label:"Pregnancy"}];
+  const Nav = ({active="home"}:{active?:string}) => { const items = [{id:"home",icon:"M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3l9-8z",label:"Home"},{id:"calendar",icon:"M6 2v2H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H8V2H6zm-2 8h16v10H4V10z",label:"Calendar"},{id:"log",icon:"M12 4a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H5a1 1 0 110-2h6V5a1 1 0 011-1z",label:"Log"},{id:"insights",icon:"M3 20h18v-2H3v2zm0-6h10v-2H3v2zm0-6h14V6H3v2z",label:"Insights"},{id:"settings",icon:"M12 15.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 15.5z",label:"Settings"}]; return (<nav className="fixed bottom-0 left-0 right-0 flex justify-around items-center h-16 px-2 z-50" style={{background:"#f0eded",borderTop:"1px solid rgba(138,112,96,0.12)"}}>{items.map(it=>(<button key={it.id} className="flex flex-col items-center gap-0.5 bg-transparent border-0 cursor-pointer p-1"><svg width="22" height="22" viewBox="0 0 24 24" fill={active===it.id?"#8a7060":"rgba(0,0,0,0.2)"}><path d={it.icon}/></svg><span className="text-[9px]" style={{color:active===it.id?"#8a7060":"rgba(0,0,0,0.2)"}}>{it.label}</span></button>))}</nav>); };
+  return (
+    <div className="min-h-screen pb-20 relative" style={{background:"#f0eded",fontFamily:"system-ui"}}>
+      <div className="relative z-10 px-5 pt-14">
+        <h1 className="text-2xl font-light tracking-widest text-center mb-1" style={{color:"#8a7060",fontFamily:"system-ui, sans-serif"}}>Petra</h1>
+        <p className="text-center text-xs mb-5" style={{color:"rgba(45,37,34,0.5)"}}>Good morning, Sarah</p>
+        <div className="flex gap-1 p-1 rounded-full mb-6" style={{background:"rgba(138,112,96,0.06)"}}>{modes.map(m=>(<button key={m.key} onClick={()=>setMode(m.key)} className="flex-1 py-2 rounded-full text-[10px] font-medium border-0 cursor-pointer" style={{background:mode===m.key?"rgba(0,0,0,0.08)":"transparent",color:mode===m.key?"#8a7060":"rgba(0,0,0,0.4)"}}>{m.label}</button>))}</div>
+        {mode==="cycle"&&(<>
+          <div className="flex justify-center mb-6"><svg width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="8"/><circle cx="100" cy="100" r="85" fill="none" stroke="#8a7060" strokeWidth="8" strokeLinecap="round" strokeDasharray={`${(14/28)*534} ${534-(14/28)*534}`} transform="rotate(-90 100 100)"/><text x="100" y="85" textAnchor="middle" fill="#8a7060" fontSize="36" fontFamily="system-ui, sans-serif">14</text><text x="100" y="105" textAnchor="middle" fill="rgba(45,37,34,0.5)" fontSize="11">of 28 days</text><text x="100" y="128" textAnchor="middle" fill="#5c4a3e" fontSize="13">Ovulation</text></svg></div>
+          <div className="rounded-2xl p-4 mb-4" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-xs" style={{color:"rgba(45,37,34,0.5)"}}>Days until period</p><p className="text-2xl font-light" style={{color:"#8a7060",fontFamily:"system-ui, sans-serif"}}>14 days</p></div>
+          <div className="rounded-2xl p-4 mb-4" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-sm" style={{color:"#2d2522"}}>Peak energy today</p></div>
+          <div className="flex gap-3 mb-4"><div className="flex-1 rounded-xl p-3 text-center" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-lg" style={{color:"#8a7060"}}>Good</p><p className="text-[10px]" style={{color:"rgba(45,37,34,0.5)"}}>Mood</p></div><div className="flex-1 rounded-xl p-3 text-center" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-lg" style={{color:"#8a7060"}}>High</p><p className="text-[10px]" style={{color:"rgba(45,37,34,0.5)"}}>Energy</p></div></div>
+          <button className="w-full py-3 rounded-full text-sm font-medium border-0 cursor-pointer" style={{background:"#8a7060",color:"#ffffff"}}>+ Quick Log</button>
+        </>)}
+        {mode==="ttc"&&(<>
+          <div className="rounded-2xl p-5 mb-4 text-center" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-xs" style={{color:"rgba(45,37,34,0.5)"}}>Fertile window</p><p className="text-3xl font-light mb-1" style={{color:"#8a7060",fontFamily:"system-ui, sans-serif"}}>2 days left</p></div>
+          <div className="rounded-2xl p-4 mb-4" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-xs mb-2" style={{color:"rgba(45,37,34,0.5)"}}>BBT — Last 7 days</p><svg width="100%" height="60" viewBox="0 0 280 60" preserveAspectRatio="none"><polyline points="0,48 46,42 92,54 138,36 184,24 230,12 276,18" fill="none" stroke="#8a7060" strokeWidth="2"/></svg></div>
+        </>)}
+        {mode==="pregnancy"&&(<>
+          <div className="flex justify-center mb-5"><svg width="160" height="160" viewBox="0 0 160 160"><circle cx="80" cy="80" r="70" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="6"/><circle cx="80" cy="80" r="70" fill="none" stroke="#8a7060" strokeWidth="6" strokeDasharray={`${(12/40)*440} ${440-(12/40)*440}`} transform="rotate(-90 80 80)" strokeLinecap="round"/><text x="80" y="70" textAnchor="middle" fill="#8a7060" fontSize="32" fontFamily="system-ui, sans-serif">12</text><text x="80" y="90" textAnchor="middle" fill="rgba(45,37,34,0.5)" fontSize="11">weeks</text></svg></div>
+          <div className="rounded-2xl p-4 mb-3 text-center" style={{background:"rgba(138,112,96,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><p className="text-xs" style={{color:"rgba(45,37,34,0.5)"}}>Baby is the size of a</p><p className="text-xl font-light" style={{color:"#8a7060",fontFamily:"system-ui, sans-serif"}}>Lime</p></div>
+        </>)}
+        <div className="flex items-center justify-center gap-2 mt-4 mb-4"><svg width="12" height="12" viewBox="0 0 24 24" fill="rgba(0,0,0,0.2)"><path d="M18 8h-1V6A5 5 0 007 6v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2zM9 6a3 3 0 016 0v2H9V6zm4 10h-2v-4h2v4z"/></svg><span className="text-[10px]" style={{color:"rgba(0,0,0,0.2)"}}>Your data stays on your device</span></div>
+      </div>
+      <Nav active="home"/>
+    </div>
+  );
+}

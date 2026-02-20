@@ -50,7 +50,7 @@ export default function SummaryScreen({ data, onComplete, onBack }: SummaryScree
             You&apos;re All Set!
           </h2>
           <p className="text-sm text-gray-400 max-w-[280px] mx-auto">
-            Bloom is personalized and ready to support your journey
+            Dunia is personalized and ready to support your journey
           </p>
         </div>
 
@@ -125,7 +125,7 @@ export default function SummaryScreen({ data, onComplete, onBack }: SummaryScree
           border: "1px solid #fce7f3",
         }}>
           <p className="text-sm text-center text-bloom-800 leading-relaxed">
-            &ldquo;Knowledge of your cycle is a superpower. Welcome to Bloom.&rdquo;
+            &ldquo;Knowledge of your cycle is a superpower. Welcome to Dunia.&rdquo;
           </p>
         </div>
       </div>

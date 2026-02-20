@@ -1,0 +1,16 @@
+"use client";
+import { useState } from "react";
+export default function Community() {
+  const Nav = ({active="home"}:{active?:string}) => { const items = [{id:"home",icon:"M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3l9-8z",label:"Home"},{id:"calendar",icon:"M6 2v2H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H8V2H6zm-2 8h16v10H4V10z",label:"Calendar"},{id:"log",icon:"M12 4a1 1 0 011 1v6h6a1 1 0 110 2h-6v6a1 1 0 11-2 0v-6H5a1 1 0 110-2h6V5a1 1 0 011-1z",label:"Log"},{id:"insights",icon:"M3 20h18v-2H3v2zm0-6h10v-2H3v2zm0-6h14V6H3v2z",label:"Insights"},{id:"settings",icon:"M12 15.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 15.5z",label:"Settings"}]; return (<nav className="fixed bottom-0 left-0 right-0 flex justify-around items-center h-16 px-2 z-50" style={{background:"#faf6f0",borderTop:"1px solid rgba(194,149,107,0.12)"}}>{items.map(it=>(<button key={it.id} className="flex flex-col items-center gap-0.5 bg-transparent border-0 cursor-pointer p-1"><svg width="22" height="22" viewBox="0 0 24 24" fill={active===it.id?"#c2956b":"rgba(0,0,0,0.2)"}><path d={it.icon}/></svg><span className="text-[9px]" style={{color:active===it.id?"#c2956b":"rgba(0,0,0,0.2)"}}>{it.label}</span></button>))}</nav>); };
+  return (
+    <div className="min-h-screen pb-20" style={{background:"#faf6f0",fontFamily:"system-ui"}}>
+      <div className="px-5 pt-14">
+        <h1 className="text-xl font-light tracking-widest text-center mb-1" style={{color:"#c2956b",fontFamily:"Georgia, serif"}}>Community</h1>
+        <div className="mb-6"/>
+        <div className="space-y-3">{[{user:"MoonChild",text:"Day 14 and feeling amazing! Ovulation energy is real.",likes:24,time:"2h"},{user:"EarthMama",text:"Anyone else get crazy cravings during luteal phase?",likes:18,time:"4h"},{user:"WildFern",text:"Started seed cycling this month. Excited to see results!",likes:31,time:"6h"}].map(p=>(<div key={p.user} className="rounded-2xl p-4" style={{background:"rgba(194,149,107,0.06)",border:"1px solid rgba(0,0,0,0.06)"}}><div className="flex items-center gap-2 mb-2"><div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{background:"#c2956b",color:"#ffffff"}}>{p.user[0]}</div><div><p className="text-xs font-medium" style={{color:"#3d2e1f"}}>{p.user}</p><p className="text-[10px]" style={{color:"rgba(61,46,31,0.5)"}}>{p.time} ago</p></div></div><p className="text-xs leading-relaxed mb-2" style={{color:"#3d2e1f"}}>{p.text}</p><div className="flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c2956b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span className="text-[10px]" style={{color:"rgba(61,46,31,0.5)"}}>{p.likes}</span></div></div>))}</div>
+        <div className="flex items-center justify-center gap-2 mt-4 mb-4"><svg width="12" height="12" viewBox="0 0 24 24" fill="rgba(0,0,0,0.2)"><path d="M18 8h-1V6A5 5 0 007 6v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2zM9 6a3 3 0 016 0v2H9V6zm4 10h-2v-4h2v4z"/></svg><span className="text-[10px]" style={{color:"rgba(0,0,0,0.2)"}}>Your data stays on your device</span></div>
+      </div>
+      <Nav active="home"/>
+    </div>
+  );
+}

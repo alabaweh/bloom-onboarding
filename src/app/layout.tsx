@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Bloom — Your Cycle, Your Power",
+  title: "Dunia — Your Cycle, Your Power",
   description: "A premium female health companion for cycle tracking, fertility, and wellness",
 };
 

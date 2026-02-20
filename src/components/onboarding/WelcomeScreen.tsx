@@ -63,7 +63,7 @@ export default function WelcomeScreen({ onGetStarted }: WelcomeScreenProps) {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}>
-            Bloom
+            Dunia
           </h1>
           <p className="text-lg text-gray-500 font-light tracking-wide">
             Your Cycle, Your Power

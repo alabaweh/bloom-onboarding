@@ -237,6 +237,115 @@ import Paper_UserProfile from "@/components/variants/onboarding10-app/UserProfil
 import Paper_Settings from "@/components/variants/onboarding10-app/Settings";
 
 // ═══════════════════════════════════════════════════════
+// Terra Sub-Themes — 5 unique explorations
+// ═══════════════════════════════════════════════════════
+
+// ─── Terra Ember "Ember" ───
+import Ember_Welcome from "@/components/variants/terra-ember/Welcome";
+import Ember_Features from "@/components/variants/terra-ember/Features";
+import Ember_Cycle from "@/components/variants/terra-ember/Cycle";
+import Ember_Profile from "@/components/variants/terra-ember/Profile";
+import Ember_Period from "@/components/variants/terra-ember/Period";
+import Ember_Symptoms from "@/components/variants/terra-ember/Symptoms";
+import Ember_Goals from "@/components/variants/terra-ember/Goals";
+import Ember_Notifications from "@/components/variants/terra-ember/Notifications";
+import Ember_Summary from "@/components/variants/terra-ember/Summary";
+import Ember_Dashboard from "@/components/variants/terra-ember-app/Dashboard";
+import Ember_AppCalendar from "@/components/variants/terra-ember-app/Calendar";
+import Ember_DailyLog from "@/components/variants/terra-ember-app/DailyLog";
+import Ember_CycleInsights from "@/components/variants/terra-ember-app/CycleInsights";
+import Ember_LearnHub from "@/components/variants/terra-ember-app/LearnHub";
+import Ember_Fertility from "@/components/variants/terra-ember-app/FertilityCenter";
+import Ember_Community from "@/components/variants/terra-ember-app/Community";
+import Ember_DailyStatus from "@/components/variants/terra-ember-app/DailyStatus";
+import Ember_UserProfile from "@/components/variants/terra-ember-app/UserProfile";
+import Ember_Settings from "@/components/variants/terra-ember-app/Settings";
+
+// ─── Terra Sage "Sage" ───
+import Sage_Welcome from "@/components/variants/terra-sage/Welcome";
+import Sage_Features from "@/components/variants/terra-sage/Features";
+import Sage_Cycle from "@/components/variants/terra-sage/Cycle";
+import Sage_Profile from "@/components/variants/terra-sage/Profile";
+import Sage_Period from "@/components/variants/terra-sage/Period";
+import Sage_Symptoms from "@/components/variants/terra-sage/Symptoms";
+import Sage_Goals from "@/components/variants/terra-sage/Goals";
+import Sage_Notifications from "@/components/variants/terra-sage/Notifications";
+import Sage_Summary from "@/components/variants/terra-sage/Summary";
+import Sage_Dashboard from "@/components/variants/terra-sage-app/Dashboard";
+import Sage_AppCalendar from "@/components/variants/terra-sage-app/Calendar";
+import Sage_DailyLog from "@/components/variants/terra-sage-app/DailyLog";
+import Sage_CycleInsights from "@/components/variants/terra-sage-app/CycleInsights";
+import Sage_LearnHub from "@/components/variants/terra-sage-app/LearnHub";
+import Sage_Fertility from "@/components/variants/terra-sage-app/FertilityCenter";
+import Sage_Community from "@/components/variants/terra-sage-app/Community";
+import Sage_DailyStatus from "@/components/variants/terra-sage-app/DailyStatus";
+import Sage_UserProfile from "@/components/variants/terra-sage-app/UserProfile";
+import Sage_Settings from "@/components/variants/terra-sage-app/Settings";
+
+// ─── Terra Sand "Dune" ───
+import Sand_Welcome from "@/components/variants/terra-sand/Welcome";
+import Sand_Features from "@/components/variants/terra-sand/Features";
+import Sand_Cycle from "@/components/variants/terra-sand/Cycle";
+import Sand_Profile from "@/components/variants/terra-sand/Profile";
+import Sand_Period from "@/components/variants/terra-sand/Period";
+import Sand_Symptoms from "@/components/variants/terra-sand/Symptoms";
+import Sand_Goals from "@/components/variants/terra-sand/Goals";
+import Sand_Notifications from "@/components/variants/terra-sand/Notifications";
+import Sand_Summary from "@/components/variants/terra-sand/Summary";
+import Sand_Dashboard from "@/components/variants/terra-sand-app/Dashboard";
+import Sand_AppCalendar from "@/components/variants/terra-sand-app/Calendar";
+import Sand_DailyLog from "@/components/variants/terra-sand-app/DailyLog";
+import Sand_CycleInsights from "@/components/variants/terra-sand-app/CycleInsights";
+import Sand_LearnHub from "@/components/variants/terra-sand-app/LearnHub";
+import Sand_Fertility from "@/components/variants/terra-sand-app/FertilityCenter";
+import Sand_Community from "@/components/variants/terra-sand-app/Community";
+import Sand_DailyStatus from "@/components/variants/terra-sand-app/DailyStatus";
+import Sand_UserProfile from "@/components/variants/terra-sand-app/UserProfile";
+import Sand_Settings from "@/components/variants/terra-sand-app/Settings";
+
+// ─── Terra Ochre "Sola" ───
+import Ochre_Welcome from "@/components/variants/terra-ochre/Welcome";
+import Ochre_Features from "@/components/variants/terra-ochre/Features";
+import Ochre_Cycle from "@/components/variants/terra-ochre/Cycle";
+import Ochre_Profile from "@/components/variants/terra-ochre/Profile";
+import Ochre_Period from "@/components/variants/terra-ochre/Period";
+import Ochre_Symptoms from "@/components/variants/terra-ochre/Symptoms";
+import Ochre_Goals from "@/components/variants/terra-ochre/Goals";
+import Ochre_Notifications from "@/components/variants/terra-ochre/Notifications";
+import Ochre_Summary from "@/components/variants/terra-ochre/Summary";
+import Ochre_Dashboard from "@/components/variants/terra-ochre-app/Dashboard";
+import Ochre_AppCalendar from "@/components/variants/terra-ochre-app/Calendar";
+import Ochre_DailyLog from "@/components/variants/terra-ochre-app/DailyLog";
+import Ochre_CycleInsights from "@/components/variants/terra-ochre-app/CycleInsights";
+import Ochre_LearnHub from "@/components/variants/terra-ochre-app/LearnHub";
+import Ochre_Fertility from "@/components/variants/terra-ochre-app/FertilityCenter";
+import Ochre_Community from "@/components/variants/terra-ochre-app/Community";
+import Ochre_DailyStatus from "@/components/variants/terra-ochre-app/DailyStatus";
+import Ochre_UserProfile from "@/components/variants/terra-ochre-app/UserProfile";
+import Ochre_Settings from "@/components/variants/terra-ochre-app/Settings";
+
+// ─── Terra Stone "Petra" ───
+import Stone_Welcome from "@/components/variants/terra-stone/Welcome";
+import Stone_Features from "@/components/variants/terra-stone/Features";
+import Stone_Cycle from "@/components/variants/terra-stone/Cycle";
+import Stone_Profile from "@/components/variants/terra-stone/Profile";
+import Stone_Period from "@/components/variants/terra-stone/Period";
+import Stone_Symptoms from "@/components/variants/terra-stone/Symptoms";
+import Stone_Goals from "@/components/variants/terra-stone/Goals";
+import Stone_Notifications from "@/components/variants/terra-stone/Notifications";
+import Stone_Summary from "@/components/variants/terra-stone/Summary";
+import Stone_Dashboard from "@/components/variants/terra-stone-app/Dashboard";
+import Stone_AppCalendar from "@/components/variants/terra-stone-app/Calendar";
+import Stone_DailyLog from "@/components/variants/terra-stone-app/DailyLog";
+import Stone_CycleInsights from "@/components/variants/terra-stone-app/CycleInsights";
+import Stone_LearnHub from "@/components/variants/terra-stone-app/LearnHub";
+import Stone_Fertility from "@/components/variants/terra-stone-app/FertilityCenter";
+import Stone_Community from "@/components/variants/terra-stone-app/Community";
+import Stone_DailyStatus from "@/components/variants/terra-stone-app/DailyStatus";
+import Stone_UserProfile from "@/components/variants/terra-stone-app/UserProfile";
+import Stone_Settings from "@/components/variants/terra-stone-app/Settings";
+
+// ═══════════════════════════════════════════════════════
 
 const onboardingScreenNames = ["Welcome", "Features", "Cycle", "Profile", "Period", "Symptoms", "Goals", "Notifications", "Summary"];
 const appScreenNames = ["Dashboard", "Calendar", "Daily Log", "Insights", "Learn Hub", "Fertility", "Community", "Daily Status", "Profile", "Settings"];
@@ -313,6 +422,37 @@ const themes: AppTheme[] = [
     onboarding: [Paper_Welcome, Paper_Features, Paper_Cycle, Paper_Profile, Paper_Period, Paper_Symptoms, Paper_Goals, Paper_Notifications, Paper_Summary],
     app: [Paper_Dashboard, Paper_AppCalendar, Paper_DailyLog, Paper_CycleInsights, Paper_LearnHub, Paper_Fertility, Paper_Community, Paper_DailyStatus, Paper_UserProfile, Paper_Settings],
   },
+  // ─── Terra Explorations ───
+  {
+    id: 11, name: "Terra Ember", appName: "Ember", desc: "Deep sienna + charcoal, warm dark mode glow",
+    color: "#d4663a", bg: "#1a1210",
+    onboarding: [Ember_Welcome, Ember_Features, Ember_Cycle, Ember_Profile, Ember_Period, Ember_Symptoms, Ember_Goals, Ember_Notifications, Ember_Summary],
+    app: [Ember_Dashboard, Ember_AppCalendar, Ember_DailyLog, Ember_CycleInsights, Ember_LearnHub, Ember_Fertility, Ember_Community, Ember_DailyStatus, Ember_UserProfile, Ember_Settings],
+  },
+  {
+    id: 12, name: "Terra Sage", appName: "Sage", desc: "Olive green + cream, botanical herbal calm",
+    color: "#6b8f5e", bg: "#f4f1ec",
+    onboarding: [Sage_Welcome, Sage_Features, Sage_Cycle, Sage_Profile, Sage_Period, Sage_Symptoms, Sage_Goals, Sage_Notifications, Sage_Summary],
+    app: [Sage_Dashboard, Sage_AppCalendar, Sage_DailyLog, Sage_CycleInsights, Sage_LearnHub, Sage_Fertility, Sage_Community, Sage_DailyStatus, Sage_UserProfile, Sage_Settings],
+  },
+  {
+    id: 13, name: "Terra Sand", appName: "Dune", desc: "Desert sand + dusty rose, arid minimal beauty",
+    color: "#c2956b", bg: "#faf6f0",
+    onboarding: [Sand_Welcome, Sand_Features, Sand_Cycle, Sand_Profile, Sand_Period, Sand_Symptoms, Sand_Goals, Sand_Notifications, Sand_Summary],
+    app: [Sand_Dashboard, Sand_AppCalendar, Sand_DailyLog, Sand_CycleInsights, Sand_LearnHub, Sand_Fertility, Sand_Community, Sand_DailyStatus, Sand_UserProfile, Sand_Settings],
+  },
+  {
+    id: 14, name: "Terra Ochre", appName: "Sola", desc: "Rich golden ochre + deep brown, African warmth",
+    color: "#d4a24e", bg: "#2a1f14",
+    onboarding: [Ochre_Welcome, Ochre_Features, Ochre_Cycle, Ochre_Profile, Ochre_Period, Ochre_Symptoms, Ochre_Goals, Ochre_Notifications, Ochre_Summary],
+    app: [Ochre_Dashboard, Ochre_AppCalendar, Ochre_DailyLog, Ochre_CycleInsights, Ochre_LearnHub, Ochre_Fertility, Ochre_Community, Ochre_DailyStatus, Ochre_UserProfile, Ochre_Settings],
+  },
+  {
+    id: 15, name: "Terra Stone", appName: "Petra", desc: "Cool grey stone + warm copper, architectural zen",
+    color: "#8a7060", bg: "#f0eded",
+    onboarding: [Stone_Welcome, Stone_Features, Stone_Cycle, Stone_Profile, Stone_Period, Stone_Symptoms, Stone_Goals, Stone_Notifications, Stone_Summary],
+    app: [Stone_Dashboard, Stone_AppCalendar, Stone_DailyLog, Stone_CycleInsights, Stone_LearnHub, Stone_Fertility, Stone_Community, Stone_DailyStatus, Stone_UserProfile, Stone_Settings],
+  },
 ];
 
 export default function Home() {
@@ -359,9 +499,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-3">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h1 className="text-lg font-bold tracking-tight">Bloom — Complete App Showcase</h1>
+              <h1 className="text-lg font-bold tracking-tight">Dunia — Complete App Showcase</h1>
               <p className="text-xs text-white/30">
-                10 themes &middot; {viewMode === "onboarding" ? "9 onboarding screens" : "10 app pages"} each &middot; {viewMode === "onboarding" ? "90" : "100"} designs
+                15 themes &middot; {viewMode === "onboarding" ? "9 onboarding screens" : "10 app pages"} each &middot; {viewMode === "onboarding" ? "90" : "100"} designs
                 {favorite !== null && (
                   <span className="ml-2 text-green-400/70">
                     Favorite: {themes[favorite].name}
@@ -519,8 +659,8 @@ export default function Home() {
                 &#8592; Prev Theme
               </button>
               <button
-                onClick={() => handleThemeChange(Math.min(9, activeTheme + 1))}
-                disabled={activeTheme === 9}
+                onClick={() => handleThemeChange(Math.min(14, activeTheme + 1))}
+                disabled={activeTheme === 14}
                 className="flex-1 h-8 rounded-lg text-[10px] font-medium bg-white/5 text-white/20 hover:text-white/40 disabled:opacity-20 transition-all"
               >
                 Next Theme &#8594;
