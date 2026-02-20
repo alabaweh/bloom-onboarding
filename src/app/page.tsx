@@ -320,6 +320,7 @@ export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const [viewMode, setViewMode] = useState<"onboarding" | "app">("onboarding");
   const [favorite, setFavorite] = useState<number | null>(null);
+  const [hasChangedTheme, setHasChangedTheme] = useState(false);
 
   const theme = themes[activeTheme];
   const currentScreenNames = viewMode === "onboarding" ? onboardingScreenNames : appScreenNames;
@@ -327,8 +328,32 @@ export default function Home() {
   const maxStep = currentScreens.length - 1;
   const Component = currentScreens[Math.min(activeStep, maxStep)];
 
+  const handleThemeChange = (i: number) => {
+    setActiveTheme(i);
+    setActiveStep(0);
+    setHasChangedTheme(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white" style={{ fontFamily: "system-ui, sans-serif" }}>
+      <style>{`
+        @keyframes pulseGlow {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+          50% { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
+        }
+        @keyframes bounceArrow {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(4px); }
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .theme-hint { animation: pulseGlow 2s ease-in-out infinite; }
+        .bounce-arrow { animation: bounceArrow 1s ease-in-out infinite; }
+        .fade-in { animation: fadeInUp 0.3s ease-out; }
+      `}</style>
+
       {/* Top bar */}
       <div className="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0a0a]/80 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-3">
@@ -366,24 +391,46 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Theme selector */}
-          <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1">
-            {themes.map((t, i) => (
-              <button
-                key={t.id}
-                onClick={() => { setActiveTheme(i); setActiveStep(0); }}
-                className={`px-3 py-1.5 rounded-full text-[11px] font-medium transition-all whitespace-nowrap flex items-center gap-1.5 ${
-                  i === activeTheme
-                    ? "bg-white text-black"
-                    : favorite === i
-                    ? "bg-green-500/10 text-green-400/70 border border-green-500/20"
-                    : "bg-white/5 text-white/40 hover:text-white/60"
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full shrink-0" style={{ background: t.color }} />
-                {t.name}
-              </button>
-            ))}
+          {/* Theme selector — prominent with label */}
+          <div className="mb-1">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[11px] font-bold text-white/60 uppercase tracking-widest">Choose a Theme</span>
+              {!hasChangedTheme && (
+                <span className="bounce-arrow text-white/40 text-sm">&#8594;</span>
+              )}
+              <span className="text-[10px] text-white/20 ml-auto">{activeTheme + 1} of {themes.length}</span>
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
+              {themes.map((t, i) => (
+                <button
+                  key={t.id}
+                  onClick={() => handleThemeChange(i)}
+                  className={`relative shrink-0 rounded-xl px-3.5 py-2.5 transition-all flex flex-col items-start gap-1.5 min-w-[120px] ${
+                    i === activeTheme
+                      ? "bg-white/10 border-2 scale-[1.02]"
+                      : favorite === i
+                      ? "bg-green-500/5 border border-green-500/20 hover:bg-green-500/10"
+                      : !hasChangedTheme && i === 1
+                      ? "bg-white/[0.03] border border-white/10 theme-hint hover:bg-white/[0.06]"
+                      : "bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-white/10"
+                  }`}
+                  style={i === activeTheme ? { borderColor: t.color } : {}}
+                >
+                  <div className="flex items-center gap-2 w-full">
+                    <span className="w-3 h-3 rounded-full shrink-0 ring-2 ring-white/10" style={{ background: t.color }} />
+                    <span className={`text-[11px] font-semibold truncate ${i === activeTheme ? "text-white" : "text-white/50"}`}>
+                      {t.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[9px] text-white/25">{t.appName}</span>
+                    {favorite === i && <span className="text-[9px] text-green-400/70">&#9733;</span>}
+                  </div>
+                  {/* Color preview bar */}
+                  <div className="w-full h-1 rounded-full mt-0.5" style={{ background: `linear-gradient(90deg, ${t.color}, ${t.bg})` }} />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -392,14 +439,19 @@ export default function Home() {
         <div className="flex gap-6">
           {/* Left sidebar */}
           <div className="w-56 shrink-0 space-y-4">
-            {/* Theme info */}
-            <div className="p-3 rounded-xl border border-white/10 bg-white/[0.02]">
+            {/* Theme info card */}
+            <div className="p-4 rounded-xl border-2 bg-white/[0.02] fade-in" key={activeTheme} style={{ borderColor: theme.color + "40" }}>
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-3 h-3 rounded-full" style={{ background: theme.color }} />
+                <span className="w-4 h-4 rounded-full ring-2 ring-white/10" style={{ background: theme.color }} />
                 <span className="text-sm font-bold">{theme.name}</span>
               </div>
-              <p className="text-[10px] text-white/25 mb-1">App: <span className="text-white/50">{theme.appName}</span></p>
-              <p className="text-[10px] text-white/20 leading-relaxed">{theme.desc}</p>
+              <p className="text-[11px] text-white/40 mb-1">App Name: <span className="text-white/70 font-medium">{theme.appName}</span></p>
+              <p className="text-[10px] text-white/25 leading-relaxed">{theme.desc}</p>
+              {/* Color swatch preview */}
+              <div className="flex gap-1.5 mt-3">
+                <div className="flex-1 h-6 rounded-lg" style={{ background: theme.bg, border: "1px solid rgba(255,255,255,0.1)" }} />
+                <div className="flex-1 h-6 rounded-lg" style={{ background: theme.color }} />
+              </div>
             </div>
 
             {/* Screen steps */}
@@ -460,18 +512,18 @@ export default function Home() {
             {/* Quick theme nav */}
             <div className="flex gap-2">
               <button
-                onClick={() => { setActiveTheme(Math.max(0, activeTheme - 1)); setActiveStep(0); }}
+                onClick={() => handleThemeChange(Math.max(0, activeTheme - 1))}
                 disabled={activeTheme === 0}
                 className="flex-1 h-8 rounded-lg text-[10px] font-medium bg-white/5 text-white/20 hover:text-white/40 disabled:opacity-20 transition-all"
               >
-                Prev Theme
+                &#8592; Prev Theme
               </button>
               <button
-                onClick={() => { setActiveTheme(Math.min(9, activeTheme + 1)); setActiveStep(0); }}
+                onClick={() => handleThemeChange(Math.min(9, activeTheme + 1))}
                 disabled={activeTheme === 9}
                 className="flex-1 h-8 rounded-lg text-[10px] font-medium bg-white/5 text-white/20 hover:text-white/40 disabled:opacity-20 transition-all"
               >
-                Next Theme
+                Next Theme &#8594;
               </button>
             </div>
           </div>
@@ -479,6 +531,14 @@ export default function Home() {
           {/* Phone preview */}
           <div className="flex-1 flex justify-center">
             <div className="relative">
+              {/* Current theme label above phone */}
+              <div className="flex items-center justify-center gap-2 mb-4 fade-in" key={`label-${activeTheme}`}>
+                <span className="w-2.5 h-2.5 rounded-full" style={{ background: theme.color }} />
+                <span className="text-sm font-bold text-white/70">{theme.name}</span>
+                <span className="text-xs text-white/25">&middot;</span>
+                <span className="text-xs text-white/30">{theme.appName}</span>
+              </div>
+
               <div
                 className="w-[375px] h-[812px] rounded-[3rem] border-[8px] border-[#1a1a1a] bg-[#1a1a1a] overflow-hidden relative"
                 style={{ boxShadow: "0 0 0 2px #333, 0 20px 60px rgba(0,0,0,0.5)" }}
